@@ -1,0 +1,24 @@
+{
+  "name": "swapi_ql",
+  "version": "1.0.0",
+  "description": "GraphQL layer over SWAPI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GifCo/SWAPI_QL.git"
+  },
+  "keywords": [
+    "GraphQL",
+    "SWAPI",
+    "Node"
+  ],
+  "author": "Gifford Boake",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GifCo/SWAPI_QL/issues"
+  },
+  "homepage": "https://github.com/GifCo/SWAPI_QL#readme"
+}
