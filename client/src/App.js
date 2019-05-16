@@ -1,10 +1,10 @@
-import React from 'react';
+import React from 'react'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
 import Planets from './components/Planets'
-import './App.css';
+import './App.css'
 
-const client = new ApolloClient({ uri: 'http://localhost:5000/graphql'})
+const client = new ApolloClient({ uri: 'http://localhost:5000/graphql' })
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <Planets />
       </div>
     </ApolloProvider>
-  );
+  )
 }
 
-export default App;
+export default App
