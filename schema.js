@@ -20,7 +20,8 @@ const RootQuery = new GraphQLObjectType({
         planets: {
             type: new GraphQLList(PlanetType),
             args: {
-                limit: { type: GraphQLInt }
+                limit: { type: GraphQLInt },
+                offset: { type: GraphQLInt }
             },
             resolve(parent, args) {
                 return axios
@@ -38,12 +39,12 @@ const RootQuery = new GraphQLObjectType({
                         return Promise.all(pages)
                     })
                     .then(res => {
-                        //combined results are in 2d array need to flatten
+                        //combined results are in 2d array need to flaten
                         const resultData = res
                             .map(page => page.data.results)
                             .reduce((prev, curr) => prev.concat(curr))
                         return resultData.splice(
-                            0,
+                            args.offset ? args.offset : 0,
                             args.limit ? args.limit : resultData.length
                         )
                     })
@@ -63,6 +64,10 @@ const RootQuery = new GraphQLObjectType({
         },
         characters: {
             type: new GraphQLList(CharacterType),
+            args: {
+                limit: { type: GraphQLInt },
+                offset: { type: GraphQLInt }
+            },
             resolve(parent, args) {
                 return axios
                     .get('https://swapi.co/api/people')
@@ -82,7 +87,10 @@ const RootQuery = new GraphQLObjectType({
                         const resultData = res
                             .map(page => page.data.results)
                             .reduce((prev, curr) => prev.concat(curr))
-                        return resultData
+                        return resultData.splice(
+                            args.offset ? args.offset : 0,
+                            args.limit ? args.limit : resultData.length
+                        )
                     })
                     .catch(err => console.log('Err: ', err))
             }
@@ -100,6 +108,10 @@ const RootQuery = new GraphQLObjectType({
         },
         movies: {
             type: new GraphQLList(MovieType),
+            args: {
+                limit: { type: GraphQLInt },
+                offset: { type: GraphQLInt }
+            },
             resolve(parent, args) {
                 return axios
                     .get('https://swapi.co/api/films')
@@ -116,11 +128,14 @@ const RootQuery = new GraphQLObjectType({
                         return Promise.all(pages)
                     })
                     .then(res => {
-                        //combined results are in 2d array need to flatten
+                        //combined results are in 2d array need to flaten
                         const resultData = res
                             .map(page => page.data.results)
                             .reduce((prev, curr) => prev.concat(curr))
-                        return resultData
+                        return resultData.splice(
+                            args.offset ? args.offset : 0,
+                            args.limit ? args.limit : resultData.length
+                        )
                     })
                     .catch(err => console.log('Err: ', err))
             }
@@ -138,6 +153,10 @@ const RootQuery = new GraphQLObjectType({
         },
         species: {
             type: new GraphQLList(SpeciesType),
+            args: {
+                limit: { type: GraphQLInt },
+                offset: { type: GraphQLInt }
+            },
             resolve(parent, args) {
                 return axios
                     .get('https://swapi.co/api/species')
@@ -154,11 +173,14 @@ const RootQuery = new GraphQLObjectType({
                         return Promise.all(pages)
                     })
                     .then(res => {
-                        //combined results are in 2d array need to flatten
+                        //combined results are in 2d array need to flaten
                         const resultData = res
                             .map(page => page.data.results)
                             .reduce((prev, curr) => prev.concat(curr))
-                        return resultData
+                        return resultData.splice(
+                            args.offset ? args.offset : 0,
+                            args.limit ? args.limit : resultData.length
+                        )
                     })
                     .catch(err => console.log('Err: ', err))
             }
@@ -176,6 +198,10 @@ const RootQuery = new GraphQLObjectType({
         },
         starships: {
             type: new GraphQLList(StarshipType),
+            args: {
+                limit: { type: GraphQLInt },
+                offset: { type: GraphQLInt }
+            },
             resolve(parent, args) {
                 return axios
                     .get('https://swapi.co/api/starships')
@@ -192,11 +218,14 @@ const RootQuery = new GraphQLObjectType({
                         return Promise.all(pages)
                     })
                     .then(res => {
-                        //combined results are in 2d array need to flatten
+                        //combined results are in 2d array need to flaten
                         const resultData = res
                             .map(page => page.data.results)
                             .reduce((prev, curr) => prev.concat(curr))
-                        return resultData
+                        return resultData.splice(
+                            args.offset ? args.offset : 0,
+                            args.limit ? args.limit : resultData.length
+                        )
                     })
                     .catch(err => console.log('Err: ', err))
             }
@@ -214,6 +243,10 @@ const RootQuery = new GraphQLObjectType({
         },
         vehicles: {
             type: new GraphQLList(VehicleType),
+            args: {
+                limit: { type: GraphQLInt },
+                offset: { type: GraphQLInt }
+            },
             resolve(parent, args) {
                 return axios
                     .get('https://swapi.co/api/vehicles')
@@ -230,11 +263,14 @@ const RootQuery = new GraphQLObjectType({
                         return Promise.all(pages)
                     })
                     .then(res => {
-                        //combined results are in 2d array need to flatten
+                        //combined results are in 2d array need to flaten
                         const resultData = res
                             .map(page => page.data.results)
                             .reduce((prev, curr) => prev.concat(curr))
-                        return resultData
+                        return resultData.splice(
+                            args.offset ? args.offset : 0,
+                            args.limit ? args.limit : resultData.length
+                        )
                     })
                     .catch(err => console.log('Err: ', err))
             }
