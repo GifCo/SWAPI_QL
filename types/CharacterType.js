@@ -19,18 +19,18 @@ const CharacterType = new GraphQLObjectType({
         gender: { type: GraphQLString },
         homeworld: {
             type: GraphQLString,
-            resolve: planet => {
+            resolve: character => {
                 return axios
-                    .get(`${planet.homeworld}`)
+                    .get(`${character.homeworld}`)
                     .then(res => res.data.name)
                     .catch(err => console.log(err))
             }
         },
         species: {
             type: GraphQLString,
-            resolve: planet => {
+            resolve: character => {
                 return axios
-                    .get(`${planet.species}`)
+                    .get(`${character.species}`)
                     .then(res => res.data.name)
                     .catch(err => console.log(err))
             }

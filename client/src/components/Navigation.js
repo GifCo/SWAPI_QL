@@ -74,9 +74,9 @@ const useStyles = makeStyles( (theme) => {
         }),
         overflowX: 'hidden',
         width: theme.spacing(7) + 1,
-        [theme.breakpoints.up('sm')]: {
-          width: theme.spacing(9) + 1,
-        },
+        // [theme.breakpoints.up('sm')]: {
+        //   width: theme.spacing(9) +1,
+        // },
       },
       toolbar: {
         display: 'flex',
@@ -105,7 +105,7 @@ const Navigation = (props) => {
         setOpen(false)
     }
 
-
+    console.log('The navigations props: ', props)
 
     return (
         <div className={cls.root}>
@@ -135,35 +135,35 @@ const Navigation = (props) => {
                 </div>
                 <Divider/>
                 <List>
-                    <ListItem button key={'1'}>
-                    <Link component={RouterLink} to="/"><ListItemIcon><Home/> </ListItemIcon></Link>
-                        <ListItemText primary='Home'/>
+                    <ListItem component={RouterLink} to='/' button key={'1'}>
+                      <ListItemIcon><Home/></ListItemIcon>
+                      <ListItemText primary='Home'/>
                     </ListItem>
-                    <ListItem button key={'2'}>
-                        <ListItemIcon><Face containerElement={<RouterLink to='/planets' />}/></ListItemIcon>
+                    <ListItem component={RouterLink} to='/characters' button key={'2'}>
+                        <ListItemIcon><Face/></ListItemIcon>
                         <ListItemText primary='Characters'/>
                     </ListItem>
-                    <ListItem button key={'3'}>
-                    <ListItemIcon><Link component={RouterLink} to="/planets"><Language/></Link></ListItemIcon>
-                        <ListItemText primary='Planets'/>
+                    <ListItem component={RouterLink} to='/planets' button key={'3'}>
+                      <ListItemIcon><Language/></ListItemIcon>
+                      <ListItemText primary='Planets'/>
                     </ListItem>
-                    <ListItem button key={'4'}>
+                    <ListItem component={RouterLink} to='/movies' button key={'4'}>
                         <ListItemIcon><Movie/></ListItemIcon>
                         <ListItemText primary='Movies'/>
                     </ListItem>
-                    <ListItem button key={'5'}>
+                    <ListItem component={RouterLink} to='/species' button key={'5'}>
                         <ListItemIcon><RecentActors/></ListItemIcon>
                         <ListItemText primary='Species'/>
                     </ListItem>
-                    <ListItem button key={'6'}>
+                    <ListItem component={RouterLink} to='/starships' button key={'6'}>
                         <ListItemIcon><img src={Starship}/></ListItemIcon>
                         <ListItemText primary='Star Ships'/>
                     </ListItem>
-                    <ListItem button key={'7'}>
+                    <ListItem component={RouterLink} to='/vehicles' button key={'7'}>
                         <ListItemIcon><Motorcycle/></ListItemIcon>
                         <ListItemText primary='Vehicles'/>
                     </ListItem>
-                    <ListItem button key={'8'}>
+                    <ListItem component={RouterLink} to='/about' button key={'8'}>
                         <ListItemIcon><Help/></ListItemIcon>
                         <ListItemText primary='About This Site'/>
                     </ListItem>

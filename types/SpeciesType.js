@@ -14,7 +14,7 @@ const SpeciesType = new GraphQLObjectType({
             type: GraphQLList(GraphQLString),
             description: 'Characters hair color if any'
         },
-        skin_colors: { type: GraphQLList(GraphQLString) },
+        skin_colors: { type: GraphQLString },
         eye_color: { type: GraphQLList(GraphQLString) },
         average_lifespan: { type: GraphQLString },
         gender: { type: GraphQLString },
