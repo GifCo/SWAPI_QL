@@ -1,6 +1,7 @@
 import React from 'react'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
+import '../App.css'
 
 const PLANETS_QUERY = gql`
   query PlanetsQuery {
@@ -14,7 +15,7 @@ const PLANETS_QUERY = gql`
 
 const Planets = () => {
   return (
-    <div>
+    <div className="App">
       <h2>Planets:</h2>
       <Query query={PLANETS_QUERY}>
         {({ loading, error, data }) => {

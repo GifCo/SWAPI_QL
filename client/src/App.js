@@ -1,19 +1,20 @@
 import React from 'react'
-import ApolloClient from 'apollo-boost'
-import { ApolloProvider } from 'react-apollo'
+import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import Navigation from './components/Navigation'
+import Home from './pages/Home'
 import Planets from './components/Planets'
 import './App.css'
 
-const client = new ApolloClient({ uri: 'http://localhost:5000/graphql' })
 
 function App() {
   return (
-    <ApolloProvider client={client}>
-      <div className="App">
-        <h1>SWAPI QL</h1>
-        <Planets />
-      </div>
-    </ApolloProvider>
+    <Router>
+      <Navigation>
+        <Route exact path='/' component={Home}/>
+        <Route path='/characters' component={Home}/>
+        <Route path='/planets' component={Planets}/>
+      </Navigation>
+    </Router>
   )
 }
 
