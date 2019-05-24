@@ -4,7 +4,6 @@ import { ApolloProvider } from 'react-apollo'
 import ApolloClient from 'apollo-boost'
 import { MuiThemeProvider as ThemeProvider } from '@material-ui/core/styles';
 import theme from './materialTheme'
-import './index.css';
 import App from './App';
 
 const client = new ApolloClient({ uri: 'http://localhost:5000/graphql' })
